@@ -105,24 +105,45 @@ project-root/
 - PORT=3000
 - MONGODB_URL=mongodb://localhost:27017/book-review
 
-### Example API Requests using curl
+### Example API Requests with payload
 
-- Signup
-  - curl --location 'http://localhost:3000/api/user/signup' \
---header 'Content-Type: application/json' \
---header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODQ1YzIzOGRiYmRkYjQ1ZjFhYzY2MzkiLCJuYW1lIjoiU2hyZXlhcyBBZWl5ZXIiLCJlbWFpbCI6IlNocmV5YXNAMTIzNCIsImlhdCI6MTc0OTQwMjE3MiwiZXhwIjoxNzQ5NDA5MzcyfQ.f75rl2X3BHr4VqZKQEIBr6UagGm655YpzDHV9lGx2rc' \
---data-raw '{
-     "name":"Rahul Paswan",
-     "email":"Rahulpaswan@123",
-    "password":"1234"
-}'
+- Signup  : http://localhost:3000/api/user/signup
+       {
+         "name":"Rahul Paswan",
+         "email":"example@123",
+         "password":"1234"
+       }
 
-- Login
-- curl --location 'http://localhost:3000/api/user/login' \
---header 'Content-Type: application/json' \
---header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODQ1YzQ3MjgwMzIwNmQ3YmFkNDM0ZmMiLCJuYW1lIjoiUmFodWwgUGFzd2FuIiwiZW1haWwiOiJSYWh1bHBhc3dhbkAxMjMiLCJpYXQiOjE3NDk0MDI4MzcsImV4cCI6MTc0OTQxMDAzN30.n2-4KibfZiGqhqMO5zM5rat3ZAKNPtqS-8B_I7HY2IY' \
---data-raw '{
-     "email":"Rahulpaswan@123",
+- Login : http://localhost:3000/api/user/login
+- {
+     "email":"example@123",
     "password":"1234"
 
-}'
+  }
+
+- Add book : http://localhost:3000/api/books/add
+
+   {
+    "title": "Letters from the East",
+    "author": "Fatima Noor",
+    "genre": "Historical Fiction",
+    "publishedYear": 2010
+  }
+
+  - Get all book details : http://localhost:3000/api/books?page=1&limit=5&author=Rahul&genre=New
+  - Get book by is : http://localhost:3000/api/books/{bookId}?page=1&limit=2
+
+  - Add Review to specific book : http://localhost:3000/api/books/{bookId}/reviews
+    {
+      "rating": 5,
+      "comment": "This is Great"
+   }
+
+ - Update Review : http://localhost:3000/api/reviews/{reviewId}
+   {
+    "comment":"Something really great",
+    "rating":2
+  }
+- Delete Review : http://localhost:3000/api/reviews/{reviewId}
+- Search book : http://localhost:3000/api/books/search?author=Fatima&title=Letters
+  
