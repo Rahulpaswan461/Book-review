@@ -24,23 +24,22 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+// Hash the password before saving the user document
 userSchema.pre("save", async function (next) {
   const user = this;
   if (!user.isModified("password")) return next();
 
   try {
     const salt = await bcrypt.genSalt(10);
-
     const hashedPassword = await bcrypt.hash(user.password, salt);
-
     user.password = hashedPassword;
-
     next();
   } catch (error) {
     return next(error);
   }
 });
 
+// Authenticate user by email and password, and generate a JWT token
 userSchema.static(
   "matchPasswordAndGenerateToken",
   async function (email, password) {
@@ -60,5 +59,4 @@ userSchema.static(
 );
 
 const User = mongoose.model("user", userSchema);
-
 module.exports = User;
