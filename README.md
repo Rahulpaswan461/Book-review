@@ -24,5 +24,16 @@ A RESTful API built with **Node.js**, **Express**, and **MongoDB** for managing 
 
 ---
 
-## 📁 Folder Structure
+## 📁 Folder 
+
+project-root/
+│
+├── controllers/ # Route logic
+├── models/ # Mongoose schemas
+├── routes/ # API endpoints
+├── middlewares/ # JWT & error handling middleware
+├── services/ # Utility functions (e.g., token generation)
+├── .env # Environment variables
+├── server.js # App entry point
+└── README.md # Project documentation
 
