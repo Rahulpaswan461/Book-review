@@ -76,9 +76,9 @@ project-root/
 
 ## Installation
 1. Clone the repository:
-   git clone https://github.com/Rahulpaswan461/Assignment-portal.git
+   git clone https://github.com/Rahulpaswan461/Book-review.git
 2. Navigate to the project directory:
-   cd assignment-portal
+   cd book-review
 3. Install the dependencies:
     npm install
 4. Set up the environment variables:
@@ -108,42 +108,41 @@ project-root/
 ### Example API Requests with payload
 
 - Signup  : http://localhost:3000/api/user/signup
-       {
-         "name":"Rahul Paswan",
-         "email":"example@123",
-         "password":"1234"
-       }
+   -     {
+   -      "name":"Rahul Paswan",
+   -     "email":"example@123",
+   -     "password":"1234"
+   -     }
 
 - Login : http://localhost:3000/api/user/login
-- {
-     "email":"example@123",
-    "password":"1234"
-
-  }
+   -     {
+   -     "email":"example@123",
+   -     "password":"1234"
+   -     }
 
 - Add book : http://localhost:3000/api/books/add
 
-   {
-    "title": "Letters from the East",
-    "author": "Fatima Noor",
-    "genre": "Historical Fiction",
-    "publishedYear": 2010
-  }
+       {
+        "title": "Letters from the East",
+        "author": "Fatima Noor",
+        "genre": "Historical Fiction",
+        "publishedYear": 2010
+      }
 
   - Get all book details : http://localhost:3000/api/books?page=1&limit=5&author=Rahul&genre=New
   - Get book by is : http://localhost:3000/api/books/{bookId}?page=1&limit=2
 
   - Add Review to specific book : http://localhost:3000/api/books/{bookId}/reviews
-    {
-      "rating": 5,
-      "comment": "This is Great"
-   }
+  -     {
+  -     "rating": 5,
+  -     "comment": "This is Great"
+  -     }
 
  - Update Review : http://localhost:3000/api/reviews/{reviewId}
-   {
-    "comment":"Something really great",
-    "rating":2
-  }
+   -     {
+   -     "comment":"Something really great",
+   -      "rating":2
+   -     }
 - Delete Review : http://localhost:3000/api/reviews/{reviewId}
 - Search book : http://localhost:3000/api/books/search?author=Fatima&title=Letters
   
