@@ -134,49 +134,18 @@ project-root/
 
   - Add Review to specific book : http://localhost:3000/api/books/{bookId}/reviews
     -      {
-          "rating": 5,
+           "rating": 5,
            "comment": "This is Great"
           }
 
  - Update Review : http://localhost:3000/api/reviews/{reviewId}
    -     {
-         "comment":"Something really great",
+          "comment":"Something really great",
           "rating":2
          }
 - Delete Review : http://localhost:3000/api/reviews/{reviewId}
 - Search book : http://localhost:3000/api/books/search?author=Fatima&title=Letters
 
-  ### Database Schema Design
-  - The Book Review API uses a MongoDB database with the following core schemas:
+  ### DB Schema Reference : https://app.eraser.io/workspace/1QtcCjLPL0Kxv1GmQ882
 
-1. User Schema
- - Fields:
 
- - name (String, required) — User's full name
-- email (String, required, unique) — User’s email for login
-- password (String, required) — Hashed password stored securely
-- createdAt (Date) — Timestamp of user creation
-- Purpose:
-- Stores user details and handles authentication using JWT.
-
-2. Book Schema
-- Fields:
-
-- title (String, required) — Book title
-- author (String, required) — Book author
-- genre (String) — Genre/category of the book
-- publishedYear (Number) — Year the book was published
-- reviewCount (Number, default: 0) — Number of reviews received
-- Purpose:
-- Represents books available for review and searching.
-
-3. Review Schema
-- Fields:
-- book (ObjectId, ref to Book) — Reference to the reviewed book
-- user (ObjectId, ref to User) — Reference to the user who wrote the review
-- ratings (Number) — Rating given by the user (e.g., 1–5)
-- comment (String) — Textual review/comment
-- createdAt (Date) — Timestamp of review creation
-- Purpose:
-- Stores individual user reviews and ratings linked to both books and users.
-  
