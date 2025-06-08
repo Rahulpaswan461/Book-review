@@ -43,8 +43,8 @@ project-root/
 
 | Method | Endpoint       | Description           |
 |--------|----------------|-----------------------|
-| POST   | `/signup`      | Register new user     |
-| POST   | `/login`       | Authenticate user & get token |
+| POST   | `/api/user/signup`      | Register new user     |
+| POST   | `/api/user/login`       | Authenticate user & get token |
 
 
 
@@ -105,4 +105,24 @@ project-root/
 - PORT=3000
 - MONGODB_URL=mongodb://localhost:27017/book-review
 
+### Example API Requests using curl
 
+- Signup
+  - curl --location 'http://localhost:3000/api/user/signup' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODQ1YzIzOGRiYmRkYjQ1ZjFhYzY2MzkiLCJuYW1lIjoiU2hyZXlhcyBBZWl5ZXIiLCJlbWFpbCI6IlNocmV5YXNAMTIzNCIsImlhdCI6MTc0OTQwMjE3MiwiZXhwIjoxNzQ5NDA5MzcyfQ.f75rl2X3BHr4VqZKQEIBr6UagGm655YpzDHV9lGx2rc' \
+--data-raw '{
+     "name":"Rahul Paswan",
+     "email":"Rahulpaswan@123",
+    "password":"1234"
+}'
+
+- Login
+- curl --location 'http://localhost:3000/api/user/login' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODQ1YzQ3MjgwMzIwNmQ3YmFkNDM0ZmMiLCJuYW1lIjoiUmFodWwgUGFzd2FuIiwiZW1haWwiOiJSYWh1bHBhc3dhbkAxMjMiLCJpYXQiOjE3NDk0MDI4MzcsImV4cCI6MTc0OTQxMDAzN30.n2-4KibfZiGqhqMO5zM5rat3ZAKNPtqS-8B_I7HY2IY' \
+--data-raw '{
+     "email":"Rahulpaswan@123",
+    "password":"1234"
+
+}'
